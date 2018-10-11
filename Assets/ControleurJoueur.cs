@@ -44,13 +44,19 @@ public class ControleurJoueur : MonoBehaviour
     }
 
     Renderer[] rend = new Renderer[] { };
-    void Start() => rend = GetComponentsInChildren<Renderer>();
+
+    void Start()
+    {
+        rend = GetComponentsInChildren<Renderer>();
+        rend[1].material.color = GetJoueurModele().Couleur;
+        transform.position = GetJoueurModele().PositionLocale;
+        joueurModele.OnCouleurChangée += (s, e) => rend[1].material.color = GetJoueurModele().Couleur;
+        joueurModele.OnPositionChangée += (s, e) => transform.position = GetJoueurModele().PositionLocale;
+    }
     void Update()
     {
-        rend[1].material.color = GetJoueurModele().Couleur;
         SetIntrantsManette(GetJoueurModele().RetournerIntrantManette());
         var déplacement = new Vector2(Input.GetAxis(GetIntrantsManette()[0]), Input.GetAxis(GetIntrantsManette()[1]));
         GetJoueurModele().Déplacer(ref déplacement);
-        transform.position = GetJoueurModele().PositionLocale;
     }
 }

@@ -50,8 +50,6 @@ public class GestionnairePersonnaliser : MonoBehaviour
         var child = cube.GetComponentsInChildren<Renderer>();
         child[1].material.color = couleurparent;
         Joueur.Joueur1.ChangerCouleur(ref couleurparent);
-       // foreach (var child in cube.GetComponentsInChildren<Renderer>())
-        // child.material.color = couleurparent;
     }
     public GameObject GénérerCube()
     {
@@ -86,14 +84,13 @@ public class GestionnairePersonnaliser : MonoBehaviour
     {
         cube.transform.Rotate(0.0f, Input.GetAxis("Horizontal1") * speed, 0.0f);
 
-        //bonus!
         cube.transform.Rotate(Input.GetAxis("Vertical1") * speed, 0.0f, 0.0f);
         
         if (Input.GetKey(KeyCode.Z) && cube.transform.localScale.x <= sizeX * 2)
             cube.transform.localScale += new Vector3(augmentation, augmentation, augmentation);
         if (Input.GetKey(KeyCode.X) && cube.transform.localScale.x >= 0.10f)
             cube.transform.localScale += new Vector3(-augmentation, -augmentation, -augmentation);
-        //bonus
+        
 
 
     }
