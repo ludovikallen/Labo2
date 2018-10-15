@@ -60,11 +60,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ControleurCanon.cs" />
     <Compile Include="Assets\ControleurCouleur.cs" />
     <Compile Include="Assets\ControleurJoueur.cs" />
+    <Compile Include="Assets\ControleurProjectile.cs" />
     <Compile Include="Assets\GestionnaireJeu.cs" />
     <Compile Include="Assets\GestionnaireMenu.cs" />
     <Compile Include="Assets\GestionnairePersonnaliser.cs" />
+    <Compile Include="Assets\GestionnairePrefabs.cs" />
     <Compile Include="Assets\GestionnaireRetourMenu.cs" />
     <Compile Include="Assets\Joueur.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
