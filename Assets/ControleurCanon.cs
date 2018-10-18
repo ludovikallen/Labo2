@@ -1,24 +1,19 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ControleurCanon : MonoBehaviour
 {
     [SerializeField]
-    Transform pointdesortie;
-    GameObject prefabprojectile { get; set; }
-    void Start()
-    {
-        prefabprojectile = Resources.Load<GameObject>("Projectile");
-    }
+    Transform transformSortieProjectile;
 
-    // Update is called once per frame
-    void Update()
+    public Canon CanonModèle { get; private set;}
+
+    void Awake()
     {
-        if (Time.frameCount % 100 == 0)
-        {
-            var proj = Instantiate(prefabprojectile, pointdesortie.position, transform.rotation);
-            proj.transform.localScale = new Vector3(.5f, .5f, .5f);
-        }
+        //CanonModèle = new Canon(transformSortieProjectile, GetComponentInParent<ContrôleurJoueur>().JoueurModèle);
+
+        CanonModèle.OnTirer += (s, e) => Instantiate(GestionnairePrefabs.PrefabProjectile, transformSortieProjectile.position, Quaternion.identity)
+                                            .GetComponent<ControleurProjectile>().ProjectileModèle = e.ProjectileTirer;
     }
 }

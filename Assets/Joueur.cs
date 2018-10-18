@@ -11,7 +11,9 @@ public class Joueur
     public event EventHandler OnCouleurChangée;
     public Color couleur;
     public Vector2 positionLocale = new Vector2(UnityEngine.Random.Range(2, 3), 0);
-
+    //cette propriété est une référence au modèle de canon qu’un modèle de joueur possède
+    //quoi?
+    public Canon  Canon { get; set; }
     public string[] InstrantsManette = new string[2];
 
 
@@ -37,7 +39,7 @@ public class Joueur
         }
     }
 
-
+    
     private Joueur(Color couleur, string intrantX, string intrantY)
     {
         ChangerCouleur(ref couleur);
@@ -56,7 +58,11 @@ public class Joueur
         InstrantsManette[0] = intrantX;
         InstrantsManette[1] = intrantY;
     }
-
+    //ici qui a ete fait
+    public void Attaquer(Vector2 direction)
+    {
+        Canon.Tirer(ref direction);
+    }
     public ref string[] RetournerIntrantManette()
     {
         if (InstrantsManette.Length < 2)

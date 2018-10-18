@@ -1,16 +1,19 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ControleurProjectile : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //Le modèle de projectile que cette instance de ContrôleurProjectile contrôle
+    //À setter à l'extérieur de cette classe
+    public Projectile ProjectileModèle { get; set; }
+   
     void Start()
     {
-        
+       
+        //à compléter
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.localPosition += transform.forward;
