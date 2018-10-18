@@ -11,7 +11,8 @@ public class ControleurCanon : MonoBehaviour
 
     void Awake()
     {
-        //CanonModèle = new Canon(transformSortieProjectile, GetComponentInParent<ContrôleurJoueur>().JoueurModèle);
+        //pt de la marde
+        CanonModèle = new Canon(transformSortieProjectile, GetComponentInParent<ControleurJoueur>().joueurModele);
 
         CanonModèle.OnTirer += (s, e) => Instantiate(GestionnairePrefabs.PrefabProjectile, transformSortieProjectile.position, Quaternion.identity)
                                             .GetComponent<ControleurProjectile>().ProjectileModèle = e.ProjectileTirer;

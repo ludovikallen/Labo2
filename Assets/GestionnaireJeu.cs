@@ -11,13 +11,11 @@ public class GestionnaireJeu : MonoBehaviour
 
     void Awake()
     {
-        joueur1 = Instantiate(Resources.Load<GameObject>("Joueur"));
-        joueur2 = Instantiate(Resources.Load<GameObject>("Joueur"));
+        joueur1 = Instantiate(Resources.Load<GameObject>("Prefabs/Joueur"));
+        joueur2 = Instantiate(Resources.Load<GameObject>("Prefabs/Joueur"));
 
-
-
-        joueur1.GetComponent<ControleurJoueur>().SetJoueurModele(Joueur.Joueur1);
-        joueur2.GetComponent<ControleurJoueur>().SetJoueurModele(Joueur.Joueur2);
+        joueur1.GetComponent<ControleurJoueur>().JoueurModele = Joueur.Joueur1;
+        joueur2.GetComponent<ControleurJoueur>().JoueurModele = Joueur.Joueur2;
     }
 
     void Update()

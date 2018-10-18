@@ -25,8 +25,6 @@ public class GestionnairePersonnaliser : MonoBehaviour
         "Classic Black",
         "Classic White"
          };
-
-
     void Start()
     {
         InitializerDropdown();
@@ -53,7 +51,7 @@ public class GestionnairePersonnaliser : MonoBehaviour
     }
     public GameObject GénérerCube()
     {
-        GameObject nouveauCube = Instantiate(Resources.Load<GameObject>("Joueur"));
+        GameObject nouveauCube = Instantiate(Resources.Load<GameObject>("Prefabs/Joueur"));
         nouveauCube.transform.position = GenererVecteur();
         return nouveauCube;
     }

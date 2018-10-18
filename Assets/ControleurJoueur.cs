@@ -5,41 +5,39 @@ using UnityEngine;
 
 public class ControleurJoueur : MonoBehaviour
 {
-    private Joueur joueurModele;
+    public Joueur joueurModele;
 
-    public Joueur GetJoueurModele()
+    public Joueur JoueurModele
     {
-        return joueurModele;
-    }
-
-    public void SetJoueurModele(Joueur value)
-    {
-        try
+        get => joueurModele;
+        set
         {
-            joueurModele = value;
-        }
-        catch (Exception)
-        {
-            throw new ArgumentNullException("Ceci est null");
+            try
+            {
+                joueurModele = value;
+            }
+            catch (Exception)
+            {
+                throw new ArgumentNullException("Ceci est null");
+            }
         }
     }
 
     private string[] intrantsManette;
 
-    private string[] GetIntrantsManette()
+    private string[] IntrantsManette
     {
-        return intrantsManette;
-    }
-
-    private void SetIntrantsManette(string[] value)
-    {
-        try
+        get => intrantsManette;
+        set
         {
-            intrantsManette = value;
-        }
-        catch (Exception)
-        {
-            throw new ArgumentNullException("Ceci est null");
+            try
+            {
+                intrantsManette = value;
+            }
+            catch (Exception)
+            {
+                throw new ArgumentNullException("Ceci est null");
+            }
         }
     }
 
@@ -47,16 +45,29 @@ public class ControleurJoueur : MonoBehaviour
 
     void Start()
     {
-        rend = GetComponentsInChildren<Renderer>();
-        rend[1].material.color = GetJoueurModele().Couleur;
-        transform.position = GetJoueurModele().PositionLocale;
-        joueurModele.OnCouleurChangée += (s, e) => rend[1].material.color = GetJoueurModele().Couleur;
-        joueurModele.OnPositionChangée += (s, e) => transform.position = GetJoueurModele().PositionLocale;
+        //
+        if (joueurModele != null)
+        {
+            GetComponentInChildren<ControleurCouleur>().ChangerCouleur(joueurModele.Couleur);
+            //
+
+            transform.position = JoueurModele.PositionLocale;
+
+            Instantiate(GestionnairePrefabs.PrefabCanon, transform.position, Quaternion.identity, transform);
+
+            joueurModele.OnCouleurChangée += (s, e) => GetComponentInChildren<ControleurCouleur>().ChangerCouleur(joueurModele.Couleur); ;
+            joueurModele.OnPositionChangée += (s, e) => transform.position = JoueurModele.PositionLocale;
+        }
+
     }
     void Update()
     {
-        SetIntrantsManette(GetJoueurModele().RetournerIntrantManette());
-        var déplacement = new Vector2(Input.GetAxis(GetIntrantsManette()[0]), Input.GetAxis(GetIntrantsManette()[1]));
-        GetJoueurModele().Déplacer(ref déplacement);
+        if (joueurModele != null)
+        {
+            IntrantsManette = JoueurModele.RetournerIntrantManette();
+            var déplacement = new Vector2(Input.GetAxis(IntrantsManette[0]), Input.GetAxis(IntrantsManette[1]));
+            JoueurModele.Déplacer(ref déplacement);
+        }
+
     }
 }
