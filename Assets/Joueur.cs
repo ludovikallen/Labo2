@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Joueur
 {
-    public static readonly Joueur Joueur1 = new Joueur(Color.blue, "Horizontal1", "Vertical1");
-    public static readonly Joueur Joueur2 = new Joueur(Color.red, "Horizontal2", "Vertical2");
+    public static readonly Joueur Joueur1 = new Joueur(Color.blue, "Horizontal1", "Vertical1", "RHorizontal1", "RVertical1", "Shoot1");
+    public static readonly Joueur Joueur2 = new Joueur(Color.red, "Horizontal2", "Vertical2", "RHorizontal2", "RVertical2", "Shoot2");
     public event EventHandler OnPositionChangée;
     public event EventHandler OnCouleurChangée;
     public Color couleur;
@@ -14,7 +14,7 @@ public class Joueur
     //cette propriété est une référence au modèle de canon qu’un modèle de joueur possède
     //quoi?
     public Canon  Canon { get; set; }
-    public string[] InstrantsManette = new string[2];
+    public string[] InstrantsManette = new string[5];
 
 
 
@@ -40,10 +40,10 @@ public class Joueur
     }
 
     
-    private Joueur(Color couleur, string intrantX, string intrantY)
+    private Joueur(Color couleur, string intrantViserX, string intrantViserY, string intrantDeplacerX, string intrantDeplacerY, string intrantTirer)
     {
         ChangerCouleur(ref couleur);
-        AjouterIntrantsManette(intrantX, intrantY);
+        AjouterIntrantsManette(intrantViserX, intrantViserY, intrantDeplacerX, intrantDeplacerY, intrantTirer);
     }
     public void Déplacer(ref Vector2 déplacement)
     {
@@ -53,10 +53,13 @@ public class Joueur
     {
         Couleur = couleurActuelle;
     }
-    public void AjouterIntrantsManette(string intrantX, string intrantY)
+    public void AjouterIntrantsManette(string intrantViserX, string intrantViserY, string intrantDeplacerX, string intrantDeplacerY, string intrantTirer)
     {
-        InstrantsManette[0] = intrantX;
-        InstrantsManette[1] = intrantY;
+        InstrantsManette[0] = intrantViserX;
+        InstrantsManette[1] = intrantViserY;
+        InstrantsManette[2] = intrantDeplacerX;
+        InstrantsManette[3] = intrantDeplacerY;
+        InstrantsManette[4] = intrantTirer;
     }
     //ici qui a ete fait
     public void Attaquer(Vector2 direction)

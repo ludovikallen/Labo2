@@ -26,12 +26,22 @@ public class Projectile
 
     public Projectile(Vector2 position, float vitesse, Vector2 direction,Color couleur)
     {
-        //à compléter
+        Vitesse = vitesse;
+        Direction = direction;
+        Couleur = couleur;
+        PositionLocale = position;
     }
 
-    public void MettreÀJour()
+    public void MettreÀJour(Transform transform)
     {
-        //boolshit
-        PositionLocale += new Vector2(2, 2);//à compléter
+        if (Direction.x == 0 && Direction.y == 0)
+        {
+            transform.position += new Vector3(0.7f * Vitesse, 0, 0);
+        }
+        else
+        {
+            transform.position += new Vector3(Direction.x * Vitesse, Direction.y * Vitesse, 0);
+        }
+
     }
 }

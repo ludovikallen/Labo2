@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7130659555927420815}
   - component: {fileID: 6371135492038577004}
   - component: {fileID: 2441296937646233861}
+  - component: {fileID: 8735761980750483712}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5334779285140427979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_Children: []
   m_Father: {fileID: 5343988970421658369}
   m_RootOrder: 0
@@ -91,6 +92,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8735761980750483712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5334779285140427979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f79cf850b4301124eb378edb2b2a8652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5770449921238232375
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,7 +113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5343988970421658369}
-  - component: {fileID: 2681497076562475070}
+  - component: {fileID: 1704427757818456756}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -124,7 +137,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2681497076562475070
+--- !u!114 &1704427757818456756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,7 +146,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5770449921238232375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aed659236c0f75145ac4ef21e197a083, type: 3}
+  m_Script: {fileID: 11500000, guid: b12465d71f3007945b04ddf3a295d729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5999667967412176606
@@ -162,7 +175,7 @@ Transform:
   m_GameObject: {fileID: 5999667967412176606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 5343988970421658369}
   m_RootOrder: 1
@@ -208,7 +221,7 @@ TrailRenderer:
   m_Time: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.12
     widthCurve:
       serializedVersion: 2
       m_Curve:

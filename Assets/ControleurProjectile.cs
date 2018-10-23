@@ -10,12 +10,12 @@ public class ControleurProjectile : MonoBehaviour
    
     void Start()
     {
-       
-        //à compléter
+        GetComponentInChildren<ControleurCouleur>().ChangerCouleur(ProjectileModèle.Couleur);
+        Destroy(gameObject, 1);
     }
 
     void Update()
     {
-        transform.localPosition += transform.forward;
+        ProjectileModèle.MettreÀJour(transform);
     }
 }

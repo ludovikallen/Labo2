@@ -17,4 +17,6 @@ public class ControleurCanon : MonoBehaviour
         CanonModèle.OnTirer += (s, e) => Instantiate(GestionnairePrefabs.PrefabProjectile, transformSortieProjectile.position, Quaternion.identity)
                                             .GetComponent<ControleurProjectile>().ProjectileModèle = e.ProjectileTirer;
     }
+   
+
 }
